@@ -1,6 +1,6 @@
 ## 📝 README.md
 
-````md
+```md
 # 🧠 AI Image Classifier
 
 A full-stack web app that allows users to upload an image and receive a prediction using a pretrained PyTorch model. Built with React (frontend) and FastAPI (backend).
@@ -16,6 +16,7 @@ A full-stack web app that allows users to upload an image and receive a predicti
 - Frontend: React, JavaScript
 - Backend: FastAPI, PyTorch, Pillow
 - Deployment: Docker
+```
 
 ## 🔧 Getting Started
 
@@ -26,7 +27,6 @@ cd backend
 pip install -r requirements.txt
 uvicorn app:app --reload
 ```
-````
 
 ### Frontend
 
@@ -44,4 +44,6 @@ To set up later:
 cd backend
 docker build -t ai-classifier-backend .
 docker run -p 8000:8000 ai-classifier-backend
+
+
 ```

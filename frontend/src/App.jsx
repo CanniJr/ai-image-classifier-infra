@@ -6,8 +6,7 @@ function App() {
     <>
       <div className="App">
         <header className="App-header">
-          <h1>Welcome to the React App</h1>
-          <p>This is a simple React application.</p>
+          <h1>AI Image Classifier</h1>
         </header>
       </div>
     </>

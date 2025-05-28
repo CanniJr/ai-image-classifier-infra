@@ -1,4 +1,4 @@
-from fastapi import FastAPI, uploadFile, File
+from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from model import predict
 import shutil 
@@ -13,7 +13,7 @@ app.add_middleware(
 )
 
 app.post("/predict")
-async def classify_image(file: uploadFile = File(...)):
+async def classify_image(file: UploadFile = File(...)):
     with open(file.filename, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
     

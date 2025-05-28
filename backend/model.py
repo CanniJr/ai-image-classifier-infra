@@ -2,7 +2,7 @@ import torch
 from torchvision import models, transforms
 from PIL import Image
 
-model = models.resnet18(pretrained=True)
+model = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
 model.eval()
 
 transform = transforms.Compose([

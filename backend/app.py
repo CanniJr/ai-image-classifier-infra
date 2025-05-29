@@ -12,11 +12,9 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-app.post("/predict")
+@app.post("/predict")
 async def classify_image(file: UploadFile = File(...)):
     with open(file.filename, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
-    
-    prediction = predict(file.filename)
-    # Return the prediction result
-    return {"prediction": prediction}
+    result = predict(file.filename)
+    return {"class_id": result}

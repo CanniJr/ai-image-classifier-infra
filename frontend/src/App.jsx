@@ -18,7 +18,7 @@ function App() {
         body: formData,
       });
       const data = await res.json();
-      setPrediction(data.class_id);
+      setPrediction(data);
     } catch (err) {
       console.error("Error:", err);
       setPrediction("Error making prediction.");
@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div style={{ padding: "2rem", fontFamily: "Arial" }}>
-      <h1>AI Image Classifier</h1>
+      <h1>Classifier</h1>
       <input
         type="file"
         accept="image/*"
@@ -44,7 +44,9 @@ function App() {
         {loading ? "Classifying..." : "Upload & Classify"}
       </button>
       {prediction && (
-        <p style={{ marginTop: "1rem" }}>Prediction Result: {prediction}</p>
+        <p style={{ marginTop: "1rem" }}>
+          Prediction Result: {prediction.label}
+        </p>
       )}
     </div>
   );

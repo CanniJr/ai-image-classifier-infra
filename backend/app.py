@@ -17,4 +17,4 @@ async def classify_image(file: UploadFile = File(...)):
     with open(file.filename, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
     result = predict(file.filename)
-    return {"class_id": result}
+    return result

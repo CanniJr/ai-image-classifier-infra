@@ -2,8 +2,18 @@ import { useState } from "react";
 
 function App() {
   const [file, setFile] = useState(null);
+  const [preview, setPreview] = useState(null);
   const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+    if (selectedFile) {
+      setPreview(URL.createObjectURL(selectedFile));
+      setPrediction(null); // Clear previous prediction on new image
+    }
+  };
 
   const handleUpload = async () => {
     if (!file) return;
@@ -18,7 +28,7 @@ function App() {
         body: formData,
       });
       const data = await res.json();
-      setPrediction(data);
+      setPrediction(`${data.label} (class ID: ${data.id})`);
     } catch (err) {
       console.error("Error:", err);
       setPrediction("Error making prediction.");
@@ -29,13 +39,20 @@ function App() {
 
   return (
     <div style={{ padding: "2rem", fontFamily: "Arial" }}>
-      <h1>Classifier</h1>
-      <input
-        type="file"
-        accept="image/*"
-        onChange={(e) => setFile(e.target.files[0])}
-      />
-      <br />
+      <h1>AI Image Classifier</h1>
+
+      <input type="file" accept="image/*" onChange={handleFileChange} />
+
+      {preview && (
+        <div style={{ marginTop: "1rem" }}>
+          <img
+            src={preview}
+            alt="preview"
+            style={{ maxWidth: "300px", borderRadius: "8px" }}
+          />
+        </div>
+      )}
+
       <button
         onClick={handleUpload}
         disabled={loading || !file}
@@ -43,10 +60,9 @@ function App() {
       >
         {loading ? "Classifying..." : "Upload & Classify"}
       </button>
+
       {prediction && (
-        <p style={{ marginTop: "1rem" }}>
-          Prediction Result: {prediction.label}
-        </p>
+        <p style={{ marginTop: "1rem" }}>Prediction Result: {prediction}</p>
       )}
     </div>
   );

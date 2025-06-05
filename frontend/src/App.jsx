@@ -11,7 +11,7 @@ function App() {
     setFile(selectedFile);
     if (selectedFile) {
       setPreview(URL.createObjectURL(selectedFile));
-      setPrediction(null); // Clear previous prediction on new image
+      setPrediction(null);
     }
   };
 
@@ -38,17 +38,35 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "2rem", fontFamily: "Arial" }}>
-      <h1>AI Image Classifier</h1>
+    <div
+      style={{
+        maxWidth: "600px",
+        margin: "2rem auto",
+        textAlign: "center",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      <h1 style={{ marginBottom: "1rem" }}>🧠 AI Image Classifier</h1>
 
-      <input type="file" accept="image/*" onChange={handleFileChange} />
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleFileChange}
+        style={{ marginBottom: "1rem" }}
+      />
 
       {preview && (
         <div style={{ marginTop: "1rem" }}>
           <img
             src={preview}
-            alt="preview"
-            style={{ maxWidth: "300px", borderRadius: "8px" }}
+            alt="Preview"
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              borderRadius: "8px",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+              marginBottom: "1rem",
+            }}
           />
         </div>
       )}
@@ -56,13 +74,31 @@ function App() {
       <button
         onClick={handleUpload}
         disabled={loading || !file}
-        style={{ marginTop: "1rem" }}
+        style={{
+          padding: "0.75rem 1.5rem",
+          fontSize: "1rem",
+          borderRadius: "6px",
+          border: "none",
+          backgroundColor: "#4f46e5",
+          color: "#fff",
+          cursor: loading ? "not-allowed" : "pointer",
+          opacity: loading ? 0.7 : 1,
+        }}
       >
         {loading ? "Classifying..." : "Upload & Classify"}
       </button>
 
       {prediction && (
-        <p style={{ marginTop: "1rem" }}>Prediction Result: {prediction}</p>
+        <div
+          style={{
+            marginTop: "1.5rem",
+            fontSize: "1.1rem",
+            fontWeight: "bold",
+          }}
+        >
+          🧾 Prediction Result:{" "}
+          <span style={{ color: "#4f46e5" }}>{prediction}</span>
+        </div>
       )}
     </div>
   );

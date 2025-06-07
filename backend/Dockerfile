@@ -1,4 +1,4 @@
-FROM python:alpine
+FROM python:3.12
 
 # Set working directory
 WORKDIR /app
@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Expose port (optional)
 EXPOSE 8000

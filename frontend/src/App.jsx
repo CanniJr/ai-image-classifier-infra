@@ -28,6 +28,7 @@ function App() {
         body: formData,
       });
       const data = await res.json();
+      console.log("Prediction:", data);
       setPrediction(`${data.label} (class ID: ${data.id})`);
     } catch (err) {
       console.error("Error:", err);

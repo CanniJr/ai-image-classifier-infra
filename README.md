@@ -9,5 +9,13 @@ This is a continuation of [ai-image-classifier](https://github.com/CanniJr/ai-im
 - Docker Compose support
 - Future Kubernetes + vLLM integration
 
-More details to be added soon.
+Currently using minikube for local development.
+
+## 🛠️ Development Setup
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+- Minikube (for Kubernetes development)
 ```

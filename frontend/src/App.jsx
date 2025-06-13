@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ClassifyButton } from "../classifyButton";
 
 function App() {
   const [file, setFile] = useState(null);
@@ -72,7 +73,9 @@ function App() {
         </div>
       )}
 
-      <button
+      <ClassifyButton isActive={loading} onClick={handleUpload} />
+
+      {/* <button
         onClick={handleUpload}
         disabled={loading || !file}
         style={{
@@ -87,7 +90,7 @@ function App() {
         }}
       >
         {loading ? "Classifying..." : "Upload & Classify"}
-      </button>
+      </button> */}
 
       {prediction && (
         <div

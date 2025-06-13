@@ -1,6 +1,6 @@
 function buttonClassName(isActive) {
   return isActive
-    ? "bg-blue-500 text-white hover:bg-blue-600"
+    ? "bg-blue-500 text-white hover:bg-slate-600"
     : "bg-gray-200 text-gray-800 hover:bg-gray-300";
 }
 export function ClassifyButton({ isActive, onClick }) {
@@ -15,6 +15,5 @@ export function ClassifyButton({ isActive, onClick }) {
     </button>
   );
 }
-import React from "react";
 
 // This component is a button that changes its appearance based on the `isActive` prop.

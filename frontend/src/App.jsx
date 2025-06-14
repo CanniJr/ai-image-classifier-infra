@@ -73,9 +73,7 @@ function App() {
         </div>
       )}
 
-      <ClassifyButton isActive={loading} onClick={handleUpload} />
-
-      {/* <button
+      <button
         onClick={handleUpload}
         disabled={loading || !file}
         style={{
@@ -90,7 +88,7 @@ function App() {
         }}
       >
         {loading ? "Classifying..." : "Upload & Classify"}
-      </button> */}
+      </button>
 
       {prediction && (
         <div

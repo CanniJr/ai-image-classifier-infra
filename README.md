@@ -17,11 +17,12 @@ This project is a full-stack AI image classification application fully container
 
 ## 🛠 Project Structure
 
-.
+```
 ├── backend/ # FastAPI backend + ML model
 ├── frontend/ # React frontend (Vite build)
 ├── k8s/ # Kubernetes manifests (deployment, service, ingress)
 └── README.md
+```
 
 ---
 
@@ -66,11 +67,13 @@ Open your browser and go to [http://ai.local](http://ai.local)
 
 ✅ Upload an image, classify, and receive predictions.
 
-🔭 Upcoming (Phase 2 Development)
+🔭 In Progress (Phase 2 Development)
 • vLLM integration (serve LLMs inside Kubernetes)
 • SGLang orchestration for multi-step AI pipelines
 • Cluster scaling and monitoring
 
+The `main` branch reflects the latest stable MVP (`v2.0.0-k8s-mvp`).  
+The `phase-2` branch contains ongoing experimental infrastructure enhancements.
 ⸻
 
 Current Stable Tag: v2.0.0-k8s-mvp

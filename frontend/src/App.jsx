@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ClassifyButton } from "../classifyButton";
 
 function App() {
   const [file, setFile] = useState(null);
@@ -23,7 +24,7 @@ function App() {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/predict", {
+      const res = await fetch("/predict", {
         method: "POST",
         body: formData,
       });
